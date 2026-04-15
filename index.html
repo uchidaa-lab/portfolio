@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>内田彩渚</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dark-mode.css">
+  <script src="dark-mode.js"></script>
+</head>
+<body>
+  <div class="container">
+    <nav class="site-nav">
+      <a href="index.html" class="current">トップ</a>
+      <a href="#career">経歴</a>
+      <a href="hobbies.html">趣味</a>
+      <a href="#likes">好きなもの</a>
+    </nav>
+    <header>
+      <h1>内田彩渚</h1>
+      <p class="subtitle">TOKIUM 26卒</p>
+    </header>
+
+    <section class="about">
+      <h2>プロフィール</h2>
+      <ul>
+        <li><span class="label">出身</span>神奈川県横浜市 🌊</li>
+        <li><span class="label">大学</span>立教大学 異文化コミュニケーション学部</li>
+        <li><span class="label">モットー</span>誠実に！ なんとかなる！</li>
+      </ul>
+    </section>
+
+    <details class="about" id="career">
+      <summary><h2>経歴</h2></summary>
+      <ul>
+        <li><span class="label">中学</span>吹奏楽部（クラリネット）</li>
+        <li><span class="label">高校</span>ソフトボール部 🥎</li>
+        <li><span class="label">大学</span>ヨット部マネージャー ⛵</li>
+        <li><span class="label">留学</span><a href="ryugaku.html">スペイン・バスク地方（バスクチーズケーキで有名！）</a></li>
+      </ul>
+    </details>
+
+    <details class="about" id="hobbies">
+      <summary><h2>趣味</h2></summary>
+      <ul>
+        <li><a href="piano.html">🎹 ピアノを弾くこと</a></li>
+        <li><a href="movie.html">🎥 映画鑑賞</a></li>
+        <li><a href="bakery.html">🍞 街散策・パン屋巡り</a></li>
+        <li><a href="sea.html">🌊 海を眺めること</a></li>
+        <li><a href="dance.html">💃 家で爆踊り</a></li>
+      </ul>
+    </details>
+
+    <details class="about" id="likes">
+      <summary><h2>好きなもの</h2></summary>
+      <ul>
+        <li><a href="artist.html">🎤 好きなアーティスト</a></li>
+        <li><a href="cafe.html">☕ カフェ</a></li>
+        <li><a href="app.html">📱 よく使うアプリ</a></li>
+      </ul>
+    </details>
+  </div>
+
+  <script>
+    if (location.hash) {
+      var el = document.querySelector(location.hash);
+      if (el && el.tagName === 'DETAILS') el.open = true;
+    }
+  </script>
+
+  <!-- Beach illustration -->
+  <svg id="beach-scene" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 220" preserveAspectRatio="xMidYMax slice">
+    <!-- Sea base -->
+    <rect x="0" y="60" width="1400" height="160" fill="#7ec8e3"/>
+
+    <!-- Back wave -->
+    <path d="M-200,82 C100,65 400,100 700,82 C1000,64 1250,96 1600,80 L1600,220 L-200,220 Z" fill="#5badd0" opacity="0.65">
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; -60,0; 0,0" dur="7s" repeatCount="indefinite"
+        calcMode="spline" keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    </path>
+
+    <!-- Front wave -->
+    <path d="M-200,105 C80,90 380,118 680,104 C980,90 1250,114 1600,100 L1600,220 L-200,220 Z" fill="#3d8fb0" opacity="0.72">
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 60,0; 0,0" dur="5s" repeatCount="indefinite"
+        calcMode="spline" keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    </path>
+
+    <!-- Foam highlights -->
+    <ellipse cx="260" cy="96" rx="38" ry="4" fill="white" opacity="0.38"/>
+    <ellipse cx="820" cy="84" rx="28" ry="3" fill="white" opacity="0.32"/>
+    <ellipse cx="1100" cy="100" rx="22" ry="3" fill="white" opacity="0.3"/>
+
+    <!-- Sandy beach -->
+    <path d="M0,140 C350,126 750,148 1100,136 C1250,130 1360,138 1400,136 L1400,220 L0,220 Z" fill="#f5dfa0"/>
+    <path d="M0,162 C350,150 750,168 1100,158 C1250,153 1360,160 1400,158 L1400,220 L0,220 Z" fill="#edd490"/>
+
+    <!-- Left palm tree -->
+    <g>
+      <!-- Trunk -->
+      <path d="M118,220 Q112,185 116,150 Q120,112 115,80 Q111,55 120,30" stroke="#9a7020" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <!-- Fronds -->
+      <g>
+        <path d="M120,30 Q82,20 52,32" stroke="#4a8a3a" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M120,30 Q98,4 88,-22" stroke="#5a9a45" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M120,30 Q118,-2 124,-28" stroke="#4a8a3a" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M120,30 Q148,4 168,-16" stroke="#5a9a45" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M120,30 Q158,22 184,36" stroke="#4a8a3a" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M120,30 Q148,46 162,64" stroke="#5a9a45" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M120,30 Q88,46 72,64" stroke="#4a8a3a" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- Coconuts -->
+      <circle cx="124" cy="38" r="8" fill="#b87820"/>
+      <circle cx="114" cy="44" r="7" fill="#c48030"/>
+    </g>
+
+    <!-- Right palm tree -->
+    <g>
+      <!-- Trunk -->
+      <path d="M1282,220 Q1288,185 1284,150 Q1280,112 1285,80 Q1289,55 1280,30" stroke="#9a7020" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <!-- Fronds -->
+      <g>
+        <path d="M1280,30 Q1318,20 1348,32" stroke="#4a8a3a" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M1280,30 Q1302,4 1312,-22" stroke="#5a9a45" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M1280,30 Q1282,-2 1276,-28" stroke="#4a8a3a" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M1280,30 Q1252,4 1232,-16" stroke="#5a9a45" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M1280,30 Q1242,22 1216,36" stroke="#4a8a3a" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M1280,30 Q1252,46 1238,64" stroke="#5a9a45" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M1280,30 Q1312,46 1328,64" stroke="#4a8a3a" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- Coconuts -->
+      <circle cx="1276" cy="38" r="8" fill="#b87820"/>
+      <circle cx="1286" cy="44" r="7" fill="#c48030"/>
+    </g>
+
+    <!-- Small background palm (center-right) -->
+    <g opacity="0.55">
+      <path d="M860,220 Q856,192 858,165 Q860,140 858,118 Q856,100 862,84" stroke="#9a7020" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <g>
+        <path d="M862,84 Q838,76 818,84" stroke="#4a8a3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M862,84 Q848,64 844,44" stroke="#5a9a45" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M862,84 Q864,62 868,42" stroke="#4a8a3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M862,84 Q880,66 896,56" stroke="#5a9a45" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M862,84 Q882,86 900,96" stroke="#4a8a3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+  </svg>
+
+</body>
+</html>

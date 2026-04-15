@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Hiragino Sans', 'Meiryo', sans-serif;
+  background: linear-gradient(180deg, #fff8e8 0%, #faecd5 100%);
+  background-attachment: fixed;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px 240px;
+}
+
+.container {
+  text-align: center;
+  padding: 52px 40px;
+  background: rgba(255, 252, 240, 0.88);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(140, 100, 40, 0.16);
+  border: 1px solid rgba(255, 235, 180, 0.7);
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.5s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  color: #0d4f6e;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #4a8fa8;
+  letter-spacing: 0.04em;
+}
+
+.about {
+  margin-top: 20px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 20px 24px;
+  border: 1px solid rgba(74, 154, 187, 0.18);
+  box-shadow: 0 2px 8px rgba(26, 107, 138, 0.06);
+}
+
+.about h2 {
+  font-size: 1.05rem;
+  color: #1a6b8a;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #b8dce8;
+  letter-spacing: 0.06em;
+}
+
+.about ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about li {
+  font-size: 0.92rem;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.subsection-head {
+  font-size: 0.72rem;
+  font-weight: bold;
+  color: #4a9abb;
+  letter-spacing: 0.1em;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+/* Collapsible sections */
+details.about > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+details.about > summary::-webkit-details-marker {
+  display: none;
+}
+details.about > summary::after {
+  content: '›';
+  font-size: 1.2rem;
+  color: #4a9abb;
+  transition: transform 0.2s ease;
+  line-height: 1;
+  margin-left: auto;
+}
+details.about[open] > summary::after {
+  transform: rotate(90deg);
+}
+details.about > summary h2 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+  flex: 1;
+}
+details.about[open] > summary h2 {
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #b8dce8;
+}
+details.about > summary:hover h2 {
+  color: #0d4f6e;
+}
+
+a {
+  color: #1a6b8a;
+  text-decoration: underline;
+}
+a:hover {
+  opacity: 0.75;
+}
+
+.note {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: #7aabbf;
+  font-style: italic;
+  text-align: left;
+}
+
+.message {
+  margin-top: 4px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #0d4f6e;
+  background: rgba(74, 154, 187, 0.12);
+  border-radius: 8px;
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.label {
+  font-size: 0.75rem;
+  color: #fff;
+  background: #4a9abb;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.omake h2 {
+  font-size: 0.9rem;
+  color: #b8a0b0;
+  border-bottom-color: #e8d0dc;
+  letter-spacing: 0.04em;
+}
+
+.label-omake {
+  background: #e8a0b4;
+}
+
+/* Beach illustration */
+#beach-scene {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+/* Site navigation */
+.site-nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+.site-nav a {
+  font-size: 0.78rem;
+  color: #1a6b8a;
+  text-decoration: none;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(74, 154, 187, 0.1);
+  transition: background 0.2s, color 0.2s;
+}
+.site-nav a:hover {
+  background: rgba(74, 154, 187, 0.25);
+  opacity: 1;
+}
+.site-nav a.current {
+  background: #4a9abb;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 24px 12px 240px;
+    background-attachment: scroll;
+  }
+
+  .container {
+    padding: 32px 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .about {
+    padding: 16px;
+  }
+}

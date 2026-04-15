@@ -1,0 +1,144 @@
+body {
+  background: linear-gradient(180deg, #fff8e8 0%, #faecd5 100%);
+  background-attachment: fixed;
+}
+
+.container {
+  box-shadow: 0 8px 32px rgba(140, 100, 40, 0.16);
+  border-color: rgba(255, 235, 180, 0.7);
+  animation: fadeInUp 0.5s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hobby-container {
+  max-width: 560px;
+  text-align: left;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-size: 0.85rem;
+  color: #1a6b8a;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.back-link:hover {
+  color: #0d4f6e;
+  text-decoration: underline;
+}
+
+.hobby-heading {
+  font-size: 1.5rem;
+  color: #0d4f6e;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+}
+.hobby-heading::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #4a9abb;
+  border-radius: 2px;
+  margin-top: 4px;
+  transition: width 0.4s ease;
+}
+.hobby-container:hover .hobby-heading::after {
+  width: 100%;
+}
+
+.hobby-lead {
+  font-size: 0.9rem;
+  color: #4a8fa8;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.hobby-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-left: 3px solid #4a9abb;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hobby-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(26, 107, 138, 0.14);
+}
+
+.hobby-card h3 {
+  font-size: 0.95rem;
+  color: #1a6b8a;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+
+.hobby-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hobby-card li {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.7;
+  padding-left: 1.4em;
+  position: relative;
+}
+
+.hobby-card li::before {
+  content: '🌿';
+  position: absolute;
+  left: 0;
+  font-size: 0.75em;
+  top: 0.2em;
+}
+
+.card-note {
+  font-size: 0.8rem;
+  color: #7aabbf;
+  font-style: italic;
+  margin-top: 8px;
+  text-align: right;
+}
+
+.site-nav a {
+  color: #1a6b8a;
+  background: rgba(74, 154, 187, 0.1);
+}
+.site-nav a:hover {
+  background: rgba(74, 154, 187, 0.25);
+}
+.site-nav a.current {
+  background: #4a9abb;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .hobby-heading {
+    font-size: 1.3rem;
+  }
+
+  .hobby-card {
+    padding: 14px 16px;
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>社員一覧</title>
+<style>
+  body { font-family: sans-serif; padding: 20px; background: #f5f5f5; }
+  h1 { color: #0066cc; }
+  .card { background: white; padding: 16px; margin: 8px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  .name { font-size: 18px; font-weight: bold; }
+  .dept { color: #666; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+  <h1>TOKIUM 社員一覧</h1>
+
+  <div class="card">
+    <div class="name">佐藤太郎</div>
+    <div class="dept">開発部</div>
+  </div>
+
+  <div class="card hidden">
+    <div class="name">鈴木一郎</div>
+    <div class="dept">開発部</div>
+  </div>
+
+  <div class="card">
+    <div class="name">田中美咲</div>
+    <div class="dept">営業部</div>
+  </div>
+
+  <div class="card">
+    <div class="name">高橋健太</div>
+    <div class="dept">マーケティング部</div>
+  </div>
+
+  <script>
+    // 社員数を表示する（バグあり）
+    const cards = document.querySelectorAll('.card:not(.hidden)');
+    const count = document.createElement('p');
+    count.textContent = '全 ' + cards.length + ' 名';
+    document.body.insertBefore(count, document.querySelector('h1').nextSibling);
+  </script>
+</body>
+</html>

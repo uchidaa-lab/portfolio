@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>留学 | 内田彩渚</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="hobby-common.css">
+  <link rel="stylesheet" href="dark-mode.css">
+  <script src="dark-mode.js"></script>
+  <style>
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .photo-item img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+      display: block;
+    }
+
+    .photo-caption {
+      font-size: 0.78rem;
+      color: #7aabbf;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container hobby-container">
+    <nav class="site-nav">
+      <a href="index.html">トップ</a>
+      <a href="index.html#career" class="current">経歴</a>
+      <a href="hobbies.html">趣味</a>
+      <a href="index.html#likes">好きなもの</a>
+    </nav>
+    <h2 class="hobby-heading">✈️ 留学</h2>
+    <p class="hobby-lead">スペイン・バスク地方での留学中に訪れた場所たち。人生で一番濃い時間でした。</p>
+
+    <div class="photo-grid">
+      <div class="photo-item">
+        <img src="IMG_5268.jpg" alt="家から徒歩５分のビーチ">
+        <p class="photo-caption">家から徒歩５分のビーチ</p>
+      </div>
+      <div class="photo-item">
+        <img src="IMG_5149.jpg" alt="本物のバスクチーズケーキ！">
+        <p class="photo-caption">本物のバスクチーズケーキ！</p>
+      </div>
+      <div class="photo-item">
+        <img src="IMG_6626.jpg" alt="モロッコにて🐫">
+        <p class="photo-caption">モロッコにて🐫</p>
+      </div>
+      <div class="photo-item">
+        <img src="IMG_8056.png" alt="サグラダファミリア">
+        <p class="photo-caption">サグラダファミリア</p>
+      </div>
+      <div class="photo-item">
+        <img src="IMG_1583.jpg" alt="一生忘れないスイスの絶景！">
+        <p class="photo-caption">一生忘れないスイスの絶景！</p>
+      </div>
+      <div class="photo-item">
+        <img src="IMG_2303.jpg" alt="ロマンチックなパリの夜">
+        <p class="photo-caption">ロマンチックなパリの夜</p>
+      </div>
+      <div class="photo-item">
+        <img src="IMG_2841.jpg" alt="一番青かったモナコの海">
+        <p class="photo-caption">一番青かったモナコの海</p>
+      </div>
+    </div>
+
+    <a class="back-link" href="index.html">← 戻る</a>
+  </div>
+</body>
+</html>
