@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自己紹介スライド | 内田彩渚</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Hiragino Sans', 'Meiryo', sans-serif;
+      background: #0d1a2e;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* ── スライド共通 ── */
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 80px;
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateX(40px);
+      pointer-events: none;
+      text-align: center;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    /* ── 背景パターン ── */
+    .bg-sand {
+      background: linear-gradient(135deg, #fff8e8 0%, #faecd5 100%);
+      color: #333;
+    }
+    .bg-sea {
+      background: linear-gradient(135deg, #e8f4f8 0%, #c8e6f0 100%);
+      color: #0d4f6e;
+    }
+    .bg-sunset {
+      background: linear-gradient(135deg, #fce4d6 0%, #f0d0b8 100%);
+      color: #5a3820;
+    }
+    .bg-night {
+      background: linear-gradient(135deg, #152d4a 0%, #1a3655 100%);
+      color: #d8ecf5;
+    }
+    .bg-green {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      color: #2e5a30;
+    }
+    .bg-lavender {
+      background: linear-gradient(135deg, #f0e8f8 0%, #e0d0f0 100%);
+      color: #3a2860;
+    }
+
+    /* ── タイポグラフィ ── */
+    .slide h1 {
+      font-size: 3.2rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .slide h2 {
+      font-size: 2rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 24px;
+    }
+    .slide h3 {
+      font-size: 1.1rem;
+      font-weight: normal;
+      opacity: 0.7;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+    .slide p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+    }
+    .slide .big-emoji {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+    .slide .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.65;
+      margin-top: 8px;
+    }
+    .slide .motto {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 16px 32px;
+      border-radius: 12px;
+      background: rgba(74, 154, 187, 0.15);
+      display: inline-block;
+    }
+
+    /* ── リスト ── */
+    .slide ul {
+      list-style: none;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+    .slide ul li::before {
+      margin-right: 10px;
+    }
+
+    /* ── 2カラム ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      text-align: left;
+      width: 100%;
+      max-width: 800px;
+    }
+    .two-col .col h3 {
+      font-size: 1rem;
+      font-weight: bold;
+      opacity: 1;
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+    }
+    .two-col .col ul {
+      font-size: 1.05rem;
+      gap: 10px;
+    }
+
+    /* ── 進捗バー＆ナビ ── */
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: #4a9abb;
+      transition: width 0.4s ease;
+      z-index: 100;
+    }
+    .nav-hint {
+      position: fixed;
+      bottom: 20px;
+      right: 28px;
+      font-size: 0.78rem;
+      color: rgba(128, 128, 128, 0.5);
+      z-index: 100;
+    }
+    .page-num {
+      position: fixed;
+      bottom: 20px;
+      left: 28px;
+      font-size: 0.78rem;
+      color: rgba(128, 128, 128, 0.5);
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 進捗バー -->
+  <div class="progress" id="progress"></div>
+  <div class="page-num" id="pageNum"></div>
+  <div class="nav-hint">← → キー or クリック で操作</div>
+
+  <!-- 1. タイトル -->
+  <div class="slide bg-sand active" data-index="0">
+    <div class="big-emoji">🌊</div>
+    <h1>内田彩渚</h1>
+    <p class="subtitle">TOKIUM 26卒 ｜ 立教大学 異文化コミュニケーション学部</p>
+  </div>
+
+  <!-- 2. プロフィール -->
+  <div class="slide bg-sea" data-index="1">
+    <h2>プロフィール</h2>
+    <ul>
+      <li>🏠 神奈川県横浜市 出身</li>
+      <li>🎓 立教大学 異文化コミュニケーション学部</li>
+      <li>💼 TOKIUM 26卒 内定</li>
+    </ul>
+    <div class="motto">誠実に！ なんとかなる！</div>
+  </div>
+
+  <!-- 3. 経歴 -->
+  <div class="slide bg-sunset" data-index="2">
+    <h2>経歴</h2>
+    <ul>
+      <li>🎵 中学 — 吹奏楽部（クラリネット）</li>
+      <li>🥎 高校 — ソフトボール部</li>
+      <li>⛵ 大学 — ヨット部マネージャー</li>
+      <li>✈️ 留学 — スペイン・バスク地方</li>
+    </ul>
+  </div>
+
+  <!-- 4. 留学 -->
+  <div class="slide bg-night" data-index="3">
+    <h2>✈️ 留学</h2>
+    <h3>スペイン・バスク地方</h3>
+    <p>
+      バスクチーズケーキで有名なあの地方へ。<br>
+      モロッコ・スイス・パリ・モナコ…<br>
+      人生で一番濃い時間でした。
+    </p>
+  </div>
+
+  <!-- 5. 趣味 -->
+  <div class="slide bg-green" data-index="4">
+    <h2>趣味</h2>
+    <div class="two-col">
+      <div class="col">
+        <h3>アクティブ系</h3>
+        <ul>
+          <li>🎹 ピアノ（ショパン・久石譲）</li>
+          <li>🍞 街散策・パン屋巡り</li>
+          <li>💃 家で爆踊り</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>まったり系</h3>
+        <ul>
+          <li>🎥 映画鑑賞</li>
+          <li>🌊 海を眺めること</li>
+          <li>☕ カフェ巡り</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. 好きな映画 -->
+  <div class="slide bg-sea" data-index="5">
+    <h2>🎥 好きな映画 TOP3</h2>
+    <ul>
+      <li>🥇 ショーシャンクの空に</li>
+      <li>🥈 ニュー・シネマ・パラダイス</li>
+      <li>🥉 おはよう（小津安二郎）</li>
+    </ul>
+    <p class="subtitle">ホラーだけは無理です</p>
+  </div>
+
+  <!-- 7. 好きなアーティスト -->
+  <div class="slide bg-lavender" data-index="6">
+    <h2>🎤 好きなアーティスト</h2>
+    <div class="two-col">
+      <div class="col">
+        <h3>🎵 人生ソング</h3>
+        <ul>
+          <li>きときと / 高木正勝</li>
+          <li>Beyond the Sea / ロビー・ウィリアムズ</li>
+        </ul>
+        <h3 style="margin-top:18px;">Taylor Swift</h3>
+        <ul>
+          <li>You Belong with Me</li>
+          <li>I Can Do It with a Broken Heart</li>
+          <li>Cornelia Street</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>星野源</h3>
+        <ul>
+          <li>日常</li>
+          <li>光の跡</li>
+          <li>Pop Virus</li>
+        </ul>
+        <h3 style="margin-top:18px;">🎧 最近のお気に入り</h3>
+        <ul>
+          <li>ベーコンエピ / TOMOO</li>
+          <li>差し色 / Bialystocks</li>
+          <li>Dive / Olivia Dean</li>
+          <li>That's So True / Gracie Abrams</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. よく使うアプリ -->
+  <div class="slide bg-sand" data-index="7">
+    <h2>📱 よく使うアプリ</h2>
+    <ul>
+      <li>🌸 PixelPot — 歩くとお花が育つ万歩計</li>
+      <li>🎙 絶対わかる経済ニュース知らんけど（Voicy）</li>
+      <li>🗾 経県値 — 行った都道府県を塗りつぶし</li>
+    </ul>
+  </div>
+
+  <!-- 9. おわり -->
+  <div class="slide bg-night" data-index="8">
+    <div class="big-emoji">🌊</div>
+    <h1>ありがとうございました</h1>
+    <p class="subtitle">よろしくお願いします！</p>
+  </div>
+
+  <script>
+    var slides = document.querySelectorAll('.slide');
+    var total = slides.length;
+    var current = 0;
+    var progress = document.getElementById('progress');
+    var pageNum = document.getElementById('pageNum');
+
+    function updateProgress() {
+      progress.style.width = ((current + 1) / total * 100) + '%';
+      pageNum.textContent = (current + 1) + ' / ' + total;
+    }
+
+    function goTo(n) {
+      if (n < 0 || n >= total) return;
+      slides[current].classList.remove('active');
+      slides[current].style.transform = n > current ? 'translateX(-40px)' : 'translateX(40px)';
+      current = n;
+      slides[current].style.transform = 'translateX(0)';
+      slides[current].classList.add('active');
+      updateProgress();
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === ' ') goTo(current + 1);
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+    });
+
+    document.addEventListener('click', function (e) {
+      if (e.clientX > window.innerWidth / 2) {
+        goTo(current + 1);
+      } else {
+        goTo(current - 1);
+      }
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>
